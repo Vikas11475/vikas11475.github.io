@@ -472,17 +472,18 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.3rem;
+            gap: 0.6rem;
+            margin-top: 0.4rem;
         }
 
         .pub-badge {
             display: inline-flex;
             align-items: center;
-            padding: 0.2rem 0.5rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .badge-q1 {
@@ -498,7 +499,7 @@
         .badge-if {
             background: var(--bg-warm);
             color: var(--primary);
-            border: 1px solid var(--border);
+            border: 1.5px solid var(--primary);
         }
 
         /* Skills */
@@ -990,4 +991,14 @@
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', function(e) {
             const sidebar = document.getElementById('sidebar');
-            const mobileToggle = document
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !mobileToggle.contains(e.target) &&
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
